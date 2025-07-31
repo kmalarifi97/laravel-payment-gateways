@@ -1,6 +1,6 @@
 {
   "name": "kmalarifi/laravel-payment-gateways",
-  "description": "payment gateways library for Laravel 11.",
+  "description": "Flexible multi-gateway payment abstraction for Laravel 11.",
   "type": "library",
   "require": {
     "php": "^8.2",
@@ -20,7 +20,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Kmalarifi\\PaymentGateways\\RequestGatewayResolverServiceProvider"
+        "Kmalarifi\\PaymentGateways\\Providers\\PaymentGatewaysServiceProvider"
       ]
     }
   },
@@ -30,11 +30,11 @@
       "email": "kmalarifi97@gmail.com"
     }
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "require-dev": {
     "pestphp/pest": "^3.8",
-    "orchestra/testbench": "9.13.1"
+    "orchestra/testbench": "^9.13"
   },
   "config": {
     "allow-plugins": {
