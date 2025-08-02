@@ -14,34 +14,33 @@ use Kmalarifi\PaymentGateways\DTO\CreateCheckoutResponseDTO;
  */
 interface PaymentGatewayContract
 {
-
-
     /**
      * Creates a new checkout/order session with the chosen payment gateway.
      *
-     * @param  float        $amount                    Amount to charge.
-     * @param  string       $currency                  ISO‑4217 currency code (e.g. "SAR").
-     * @param  string       $paymentMethod             Gateway‑specific payment method identifier.
-     * @param  string       $customerGivenName         Customer’s given/first name.
-     * @param  string       $customerSurname           Customer’s surname/family name.
-     * @param  string       $customerIdDocType         Identification document type (e.g. "NID", "IQAMA", "PASSPORT").
-     * @param  string       $customerIdDocId           Identification document number.
-     * @param  string       $accessToken               Bearer token or API key already obtained for the gateway.
-     * @param  int|string   $customerId                Merchant‑side customer reference.
-     * @param  string       $merchantTransactionId     Merchant‑generated unique transaction reference.
-     *
-     * @return CreateCheckoutResponseDTO                      Normalised gateway response.
+     * @param  float        $amount
+     * @param  string       $currency
+     * @param  string       $merchantTransactionId
+     * @param  string|null  $paymentMethod
+     * @param  string|null  $customerGivenName
+     * @param  string|null  $customerSurname
+     * @param  string|null  $customerIdDocType
+     * @param  string|null  $customerIdDocId
+     * @param  string|null  $accessToken
+     * @param  int|string|null $customerId
+     * @param  array|null   $meta
+     * @return CreateCheckoutResponseDTO
      */
     public function createCheckout(
         float $amount,
         string $currency,
-        string $paymentMethod,
-        string $customerGivenName,
-        string $customerSurname,
-        string $customerIdDocType,
-        string $customerIdDocId,
-        string $accessToken,
-        int|string $customerId,
-        string $merchantTransactionId
+        string $merchantTransactionId,
+        string $paymentMethod = null,
+        string $customerGivenName = null,
+        string $customerSurname = null,
+        string $customerIdDocType = null,
+        string $customerIdDocId = null,
+        string $accessToken = null,
+        $customerId = null,
+        array $meta = []
     ): CreateCheckoutResponseDTO;
 }
