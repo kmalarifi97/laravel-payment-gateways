@@ -2,7 +2,13 @@
 
 namespace Kmalarifi\PaymentGateways;
 
-class AbstractGateway
-{
 
+abstract class AbstractGateway
+{
+    /** Allow children to reuse basic error formatting */
+
+    public function returnResponse($response)
+    {
+        return $response;
+    }
 }

@@ -1,16 +1,21 @@
 <?php
 
-namespace Kmalarifi\PaymentGateways;
+namespace Kmalarifi\PaymentGateways\Contracts;
+
+use Kmalarifi\PaymentGateways\DTO\CreateCheckoutResponseDTO;
+
 
 /**
  * Contract that every payment‑gateway adapter must implement.
  *
  * Each implementation (e.g. HyperpayGateway, StripeGateway) is responsible for
  * translating this canonical set of parameters into the gateway‑specific API
- * request and wrapping the result in a CheckoutResponseDto.
+ * request and wrapping the result in a CreateCheckoutResponseDTO.
  */
 interface PaymentGatewayContract
 {
+
+
     /**
      * Creates a new checkout/order session with the chosen payment gateway.
      *
@@ -25,7 +30,7 @@ interface PaymentGatewayContract
      * @param  int|string   $customerId                Merchant‑side customer reference.
      * @param  string       $merchantTransactionId     Merchant‑generated unique transaction reference.
      *
-     * @return CheckoutResponseDto                      Normalised gateway response.
+     * @return CreateCheckoutResponseDTO                      Normalised gateway response.
      */
     public function createCheckout(
         float $amount,
@@ -38,5 +43,5 @@ interface PaymentGatewayContract
         string $accessToken,
         int|string $customerId,
         string $merchantTransactionId
-    ): CheckoutResponseDto;
+    ): CreateCheckoutResponseDTO;
 }
