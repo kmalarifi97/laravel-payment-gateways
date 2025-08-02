@@ -30,7 +30,7 @@
       "email": "kmalarifi97@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "require-dev": {
     "pestphp/pest": "^3.8",
