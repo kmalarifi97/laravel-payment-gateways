@@ -35,6 +35,6 @@ class PaymentGatewaysServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config/payment-gateways.php' => config_path('payment-gateways.php'),
-        ], 'config');
+        ], 'payment-gateways');
     }
 }
