@@ -10,8 +10,8 @@ return [
     | Gateway → Class Map
     |--------------------------------------------------------------------------*/
     'gateways' => [
-        'hyperpay' => Kmalarifi\PaymentGateways\HyperPayPaymentGateway::class,
-        'alrajhi'  => Kmalarifi\PaymentGateways\AlRajhiPaymentGateway::class,
+        'hyperpay' => "",
+        'alrajhi'  => "",
     ],
 
     /*--------------------------------------------------------------------------
