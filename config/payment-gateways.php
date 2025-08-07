@@ -1,42 +1,54 @@
 <?php
 
+use Kmalarifi\PaymentGateways\HyperpayPaymentGateway;
+use Kmalarifi\PaymentGateways\AlrajhiPaymentGateway;
+
+
 return [
     /*--------------------------------------------------------------------------
     | Active Gateway Driver
     |--------------------------------------------------------------------------*/
-    'payment_gateway' => env('PAYMENT_GATEWAY', 'hyperpay'),
+    'payment_gateway' => 'alrajhi',
 
     /*--------------------------------------------------------------------------
     | Gateway → Class Map
     |--------------------------------------------------------------------------*/
     'gateways' => [
-        'hyperpay' => "",
-        'alrajhi'  => "",
+        'hyperpay' => HyperpayPaymentGateway::class,
+        'alrajhi' => AlrajhiPaymentGateway::class,
     ],
 
     /*--------------------------------------------------------------------------
     | Hyperpay Settings
     |--------------------------------------------------------------------------*/
     'hyperpay' => [
-        'base_url'  => env('HYPERPAY_BASE_URL', 'https://test.oppwa.com'),
-        'entity_id' => env('HYPERPAY_ENTITY_ID', ''),
+        'base_url' => env('APIGEE_BASE_URL'),
         'paths' => [
-            'checkout' => env('HYPERPAY_CHECKOUT_PATH', '/v1/checkouts'),
-            'status'   => env('HYPERPAY_STATUS_PATH', '/v1/checkouts/{id}/paymentStatus'),
+            'create_transaction' => '/',
+            'transaction_status' => '/',
         ],
     ],
 
     /*--------------------------------------------------------------------------
-    | Al Rajhi Settings (illustrative keys, adjust per official docs)
+    | alrajhi Settings (illustrative keys, adjust per official docs)
     |--------------------------------------------------------------------------*/
+    //Request URL:
     'alrajhi' => [
-        'base_url'    => env('ALRAJHI_BASE_URL', 'https://sandbox.alrajhipay.com'),
-        'merchant_id' => env('ALRAJHI_MERCHANT_ID', ''),
-        'callback_url'=> env('ALRAJHI_CALLBACK_URL', ''),
-        'error_url'   => env('ALRAJHI_ERROR_URL', ''),
+        'base_url' => env('ALRAJHI_BASE_URL'),
+        'merchant_id' => env('ALRAJHI_MERCHANT_ID', env()),
+        'password' => env('ARB_TRANPORTAL_PASSWORD'),
+        'resource_key' => env('ALRAJHI_RESOURCE_KEY', env()),
+        'currency_code' => env('ALRAJHI_CURRENCY_CODE', env()),
         'paths' => [
-            'checkout' => env('ALRAJHI_CHECKOUT_PATH', '/v1/payment'),
-            'status'   => env('ALRAJHI_STATUS_PATH', '/v1/payment/{id}/status'),
+            'create_transaction' => env(''),
+            'transaction_status' => env(''),
         ],
+        'redirect' => [
+            'success' => env('ARB_REDIRECT_SUCCESS', ''),
+            'fail' => env('ARB_REDIRECT_FAIL', ''),
+            'umi_success' => env(''),
+            'umi_fail' => env(''),
+        ]
     ],
+
 ];

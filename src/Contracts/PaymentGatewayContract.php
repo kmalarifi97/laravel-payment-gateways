@@ -2,7 +2,8 @@
 
 namespace Kmalarifi\PaymentGateways\Contracts;
 
-use Kmalarifi\PaymentGateways\DTO\CreateCheckoutResponseDTO;
+use Kmalarifi\PaymentGateways\DTO\CreateTransactionResponseDTO;
+use Kmalarifi\PaymentGateways\DTO\TransactionStatusResponseDTO;
 
 
 /**
@@ -17,30 +18,26 @@ interface PaymentGatewayContract
     /**
      * Creates a new checkout/order session with the chosen payment gateway.
      *
-     * @param  float        $amount
-     * @param  string       $currency
-     * @param  string       $merchantTransactionId
-     * @param  string|null  $paymentMethod
-     * @param  string|null  $customerGivenName
-     * @param  string|null  $customerSurname
-     * @param  string|null  $customerIdDocType
-     * @param  string|null  $customerIdDocId
-     * @param  string|null  $accessToken
-     * @param  int|string|null $customerId
-     * @param  array|null   $meta
+     * @param float $amount
+     * @param string $currency
+     * @param string $merchantTransactionId
+     * @param int|string|null $customerId
+     * @param array|null $metadata
      * @return CreateCheckoutResponseDTO
      */
-    public function createCheckout(
-        float $amount,
+    public function createTransaction(
+        float  $amount,
         string $currency,
-        string $merchantTransactionId,
-        string $paymentMethod = null,
-        string $customerGivenName = null,
-        string $customerSurname = null,
-        string $customerIdDocType = null,
-        string $customerIdDocId = null,
-        string $accessToken = null,
-        $customerId = null,
-        array $meta = []
-    ): CreateCheckoutResponseDTO;
+        string $transactionReference,
+        ?array $metadata = [],
+        array  $params = [],
+        array  $headers = []
+    ): CreateTransactionResponseDTO;
+
+    public function transactionStatus(
+        ?string $transactionReference = null,
+        array   $params = [],
+        array   $headers = []
+    ): TransactionStatusResponseDTO;
+
 }
