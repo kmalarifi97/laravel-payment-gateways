@@ -34,20 +34,20 @@ return [
     |--------------------------------------------------------------------------*/
     //Request URL:
     'alrajhi' => [
-        'base_url' => env('ALRAJHI_BASE_URL'),
-        'merchant_id' => env('ALRAJHI_MERCHANT_ID', env()),
-        'password' => env('ARB_TRANPORTAL_PASSWORD'),
-        'resource_key' => env('ALRAJHI_RESOURCE_KEY', env()),
-        'currency_code' => env('ALRAJHI_CURRENCY_CODE', env()),
+        'base_url' => '',
+        'merchant_id' => '',
+        'password' => '',
+        'resource_key' => '',
+        'currency_code' => '',
         'paths' => [
-            'create_transaction' => env(''),
-            'transaction_status' => env(''),
+            'create_transaction' => '',
+            'transaction_status' => '',
         ],
         'redirect' => [
-            'success' => env('ARB_REDIRECT_SUCCESS', ''),
-            'fail' => env('ARB_REDIRECT_FAIL', ''),
-            'umi_success' => env(''),
-            'umi_fail' => env(''),
+            'success' => '',
+            'fail' =>'',
+            'umi_success' => '',
+            'umi_fail' => '',
         ]
     ],
 
